@@ -1,9 +1,9 @@
 # Windows10-Optimization
 
 # Summary
- - [Tips](#tips)
+ - [TaskBar](#TaskBar)
 
-# Tips
+# TaskBar
 ### 1 - Remove the News and Interests Widget from Windows 10 Taskbar
 
 To get rid of it from the taskbar entirely, a better solution is to right-click the Weather icon and go to News and interests > Turn off
