@@ -1,6 +1,7 @@
 # Windows10-Optimization
 
 # Summary
+ - [Enable execution of powershell scripts](#Enable-execution-of-powershell-scripts)
  - [Temp Files](#Temp-files)
  - [TaskBar](#TaskBar)
 # Enable execution of powershell scripts
