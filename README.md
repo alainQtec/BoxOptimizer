@@ -3,7 +3,11 @@
 # Summary
  - [Temp Files](#Temp-files)
  - [TaskBar](#TaskBar)
-
+# Enable execution of powershell scripts
+Open a powershell window as administrator and run the following command
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+```
 # Temp files
 
 As you know, temporary files are often a lot and some of them take up a lot of space on the disk
