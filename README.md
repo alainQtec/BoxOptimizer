@@ -8,8 +8,6 @@ You can find all the commands, scripts, registry keys, configuration, tutorials 
 
 ### 2) I do not guarantee personal support and I am not responsible if you have a problem. If a problem is recurrent I will be happy to make the changes myself 
 
-# Enable execution of powershell scripts
-Open a powershell window as administrator and run the following command
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-```
+# 📚 Wikis
+
+I'm working hard to explain everything in the wiki pages... read it it's important ! you'll find tips, tweaks and many other things... there is nothing here in the readme.
