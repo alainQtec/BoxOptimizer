@@ -1,6 +1,6 @@
 # 📖 Description
 ### Hello everyone and welcome to this repository 👋!
-You can find all the commands, scripts, registry keys, configuration, tutorials and more that I use to optimize my Windows 10 to get the best performance from my PC
+You can find all the commands, scripts, registry keys, configuration, tutorials and more that I use to optimize my Windows 10/11 to get the best performance from my PC
 
 # ⚠ Important notes
 
@@ -10,7 +10,7 @@ You can find all the commands, scripts, registry keys, configuration, tutorials 
 
 # 📚 Wikis
 
-I'm working hard to explain everything in the [wiki pages](https://github.com/Damokless/Windows10-Optimization/wiki)... read it it's important ! you'll find tips, tweaks and many other things... there is nothing here in the readme.
+I'm working hard to explain everything in the [wiki pages](https://github.com/Damokless/Windows11-Optimization/wiki)... read it it's important ! you'll find tips, tweaks and many other things... there is nothing here in the readme.
 
 # 🤝 Contributions
 
