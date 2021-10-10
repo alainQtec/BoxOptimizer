@@ -1,3 +1,4 @@
+>I recently installed windows 11, it will be necessary to be patient for the wikis (they arrive soon)
 # 📖 Description
 ### Hello everyone and welcome to this repository 👋!
 You can find all the commands, scripts, registry keys, configuration, tutorials and more that I use to optimize my Windows 10/11 to get the best performance from my PC
