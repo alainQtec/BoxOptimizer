@@ -1,1 +1,1 @@
-Get-AppxPackage -AllUsers * | Remove-AppxPackage
+Get-AppxPackage -AllUsers * | Remove-AppxPackage -ErrorAction 'silentlycontinue'
