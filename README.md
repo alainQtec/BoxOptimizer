@@ -3,6 +3,15 @@
 ### Hello everyone and welcome to this repository 👋!
 You can find all the commands, scripts, registry keys, configuration, tutorials and more that I use to optimize my Windows 10/11 to get the best performance from my PC
 
+# 📋 Recommendations
+Here are my recommendations after a clean installation of windows 10 or 11
+
+* Make all updates from windows update
+* Make all updates from windows store
+* Install the latest version of winget
+
+All these recommendations will help us to have a common base
+
 # ⚠ Important notes
 
 ### 1. Don't forget to run all scripts as administrator, it's important to have the necessary access for the scripts to work at their best
