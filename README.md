@@ -25,6 +25,8 @@ I'm working hard to explain everything in the [wiki pages](https://github.com/Da
 ## Here are the wikis available
 * [Download Windows ISO](https://github.com/Damokless/Windows11-Optimization/wiki/Download-windows-iso)
   * [Download windows 10 iso](https://github.com/Damokless/Windows11-Optimization/wiki/Download-windows-iso#download-windows-10)
+  * [Download Windows 11 iso](https://github.com/Damokless/Windows11-Optimization/wiki/Download-windows-iso#download-windows-11)
+  * [Download Windows 11 iso without the requirements](https://github.com/Damokless/Windows11-Optimization/wiki/Download-windows-iso#download-windows-11-without-the-requirements)
 * [Temporary files](https://github.com/Damokless/Windows11-Optimization/wiki/Temp-files)
 * [TaskBar page](https://github.com/Damokless/Windows11-Optimization/wiki/TaskBar)
 * [Host file](https://github.com/Damokless/Windows11-Optimization/wiki/Host-file)
