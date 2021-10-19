@@ -117,9 +117,9 @@ $servicesDisable = @(
     "Fax"
 )
 foreach ($service in $servicesDisable) {
-    Stop-Service -Name $service
-    Set-Service -Name $service -StartupType Disabled
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\${service}" -Name "Start" -Force -Value 4
+    Stop-Service -Name $service -ErrorAction 'silentlycontinue'
+    Set-Service -Name $service -StartupType Disabled -ErrorAction 'silentlycontinue'
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\${service}" -Name "Start" -Force -Value 4 -ErrorAction 'silentlycontinue'
 }
 
 $servicesDemand= @(
@@ -128,7 +128,7 @@ $servicesDemand= @(
 )
 
 foreach ($service in $servicesDemand) {
-    Stop-Service -Name $service
-    Set-Service -Name $service -StartupType Disabled
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\${service}" -Name "Start" -Force -Value 3
+    Stop-Service -Name $service -ErrorAction 'silentlycontinue'
+    Set-Service -Name $service -StartupType Disabled -ErrorAction 'silentlycontinue'
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\${service}" -Name "Start" -Force -Value 3 -ErrorAction 'silentlycontinue'
 }
