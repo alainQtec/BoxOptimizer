@@ -117,8 +117,11 @@ $servicesDisable = @(
     "Fax"
 )
 foreach ($service in $servicesDisable) {
+    Write-Host "Stoping service ${service}"
     Stop-Service -Name $service -ErrorAction 'silentlycontinue'
+    Write-Host "Change the type of startup to Disabled for the service ${service}"
     Set-Service -Name $service -StartupType Disabled -ErrorAction 'silentlycontinue'
+    Write-Host "Change the value of the key ${service} in the registry"
     Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\${service}" -Name "Start" -Force -Value 4 -ErrorAction 'silentlycontinue'
 }
 
@@ -128,7 +131,10 @@ $servicesDemand= @(
 )
 
 foreach ($service in $servicesDemand) {
+    Write-Host "Stoping service ${service}"
     Stop-Service -Name $service -ErrorAction 'silentlycontinue'
-    Set-Service -Name $service -StartupType Disabled -ErrorAction 'silentlycontinue'
+    Write-Host "Change the type of startup to Manual for the service ${service}"
+    Set-Service -Name $service -StartupType Manual -ErrorAction 'silentlycontinue'
+    Write-Host "Change the value of the key ${service} in the registry"
     Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\${service}" -Name "Start" -Force -Value 3 -ErrorAction 'silentlycontinue'
 }
