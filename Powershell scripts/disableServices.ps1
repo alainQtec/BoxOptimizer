@@ -114,7 +114,22 @@ $servicesDisable = @(
     "ScDeviceEnum", #Delete this line if you use Smart Card login or if not uncomment it
     "SCPolicySvc", #Delete this line if you use Smart Card login or if not uncomment it
     #"Spooler" # Need validation | some disable it others not | print spooler
-    "Fax"
+    "Fax",
+    "MixedRealityOpenXRSvc",
+    "W32Time",
+    "spectrum" # New Virtual Reality Service
+    "FontCache3.0.0.0",
+    "FontCache",
+    "Wecsvc",
+    "EventLog",
+    "TokenBroker",
+    "UevAgentService",
+    "Themes",
+    "LanmanServer",
+    "NcbService",
+    "AppVClient",
+    "InstallService",
+    "ssh-agent"
 )
 foreach ($service in $servicesDisable) {
     Write-Host "Stoping service ${service}"
