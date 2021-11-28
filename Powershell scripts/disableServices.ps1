@@ -1,5 +1,3 @@
-#Requires -RunAsAdministrator
-
 $servicesDisable = @(
     "AJRouter",
     "ALG",
