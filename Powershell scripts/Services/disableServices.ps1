@@ -3,6 +3,7 @@ $servicesDisable = @(
     "ALG",
     "AppMgmt",
     "CscService", # Offline Files
+    "ClickToRunSvc", # Office Click-to-Run Service
     "diagnosticshub.standardcollector.service",
     "dmwappushservice",
     "HomeGroupListener",
@@ -10,8 +11,8 @@ $servicesDisable = @(
     "TrkWks",
     "WSearch",
     "IKEEXT",
-    "PcaSvc", #Compatibility Mode
-    "wcncsvc", # Laptops and other wireless computers need this service for connecting to wireless networks. Desktops that don’t have a wireless card do not need this service.
+    "PcaSvc", # Compatibility Mode
+    # "wcncsvc", # Laptops and other wireless computers need this service for connecting to wireless networks. Desktops that don’t have a wireless card do not need this service.
     "WerSvc",
     "WMPNetworkSvc", #Delete this line if you use OBS-NDI
     "BthHFSrv",
@@ -32,10 +33,10 @@ $servicesDisable = @(
     "RemoteAccess",
     "WbioSrvc",
     "lfsvc", 
-    "ndu",
+    # "ndu",
     "NetTcpPortSharing",
     "CDPSvc",
-    "TabletInputService", # Delete this line if you are using laptop touch screens and tablets
+    # "TabletInputService", # Delete this line if you are using Windows "Terminal", "laptop touch screens" or a tablet
     "WdiServiceHost",
     "PhoneSvc",
     "SmsRouter",
@@ -49,7 +50,7 @@ $servicesDisable = @(
     "irmon", #File transfer via infrared devices.
     "NaturalAuthentication",
     "Netlogon", #Delete this line if you are using  a domain controller environment.
-    "NcdAutoSetup",
+    # "NcdAutoSetup",
     "SEMgrSvc", #Delete this line if you are using NFC but Near Field Communication is a mobile phone technology. Not needed on desktops and tablets.
     "SessionEnv", # Windows RDP
     "TermService", # Windows RDP
@@ -62,37 +63,34 @@ $servicesDisable = @(
     "shpamsvc",
     "SNMPTRAP",
     "StorSvc",
-    "FrameServer", #Delete if you are using webcam, could be needed to capture webcam frames. at the moment no problems for streaming
+    # "FrameServer", #Delete if you are using webcam, could be needed to capture webcam frames. at the moment no problems for streaming
     "wisvc", #Delete this line if you want beta testing new versions of Windows via the Insider program.
-    "icssvc", #Delete this line if you are using Mobile Network Connection (3G, 4G, LTE, Etc). Keep this line on devices without those options.
     "WinRM",
     "workfolderssvc",
     "EntAppSvc",
     "DiagTrack", #Feedback and Diagnostics
     "NfsClnt",
     "WFDSConSvc",
-    "WwanSvc",
     "fhsvc", #delete this line if you are using Windows Backup, Used by Windows Backup.
     "SDRSVC",
-    "SecurityHealthService", # Windows Defender Security Center Service
-    "Sense", # Windows Defender Advanced Threat Protection Service
-    "WdNisSvc", # Windows Defender Antivirus Network Inspection Service
-    "MpsSvc", # Windows Defender Firewall
-    "WinDefend", # Windows Defender Antivirus Service
-    "wscsvc", # Security Center
-    "WdiSystemHost",
+    # "SecurityHealthService", # Windows Defender Security Center Service
+    # "Sense", # Windows Defender Advanced Threat Protection Service
+    # "WdNisSvc", # Windows Defender Antivirus Network Inspection Service
+    # "MpsSvc", # Windows Defender Firewall
+    # "WinDefend", # Windows Defender Antivirus Service
+    # "wscsvc", # Security Center
+    # "WdiSystemHost",
     "diagsvc",
-    "wlidsvc", #Delete if using MS account to log in to computer.
+    # "wlidsvc", # uncomment if ur not using MS account to log in to computer.
     "BDESVC", #Delete line if you are using storage encryption or if not uncomment it
     #"BthAvctpSvc", #Delete line if you are using Bluetooth Audio Device or Wireless Headphones or if not uncomment it
     #"RmSvc", #Delete line if you are using wifi card and bluetooth or if not uncomment it
     #"bthserv", #Delete line if you are using bluetooth devices or if not uncomment it
     #"WlanSvc", #Delete line if you are using wifi card or if not uncomment it
-    #"lmhosts", #Delete line if you are using shared files in your network (NAS and others ...) or if not uncomment it
-    #"Browser" #Delete line if you are using Network discovery of systems on local network or if not uncomment it
+    "lmhosts", #Delete line if you are using shared files in your network (NAS and others ...) or if not uncomment it
+    "Browser" #Delete line if you are using Network discovery of systems on local network or if not uncomment it
     "WpcMonSvc", #Delete line if you are using parental controls or if not uncomment it
     #"seclogon", #Need validation | some disable it others not
-    #"wuauserv", #WINDOWS UPDATE I personally recommend not to disable this service
     "XboxGipSvc", #Delete this line if using any XBOX console PC to Console functions or if not uncomment it
     "xbgm", #Delete this line if using any XBOX console PC to Console functions or if not uncomment it
     "XblAuthManager", #Delete this line if using any XBOX console PC to Console functions or if not uncomment it
@@ -112,7 +110,7 @@ $servicesDisable = @(
     "SCardSvr", #Delete this line if you use Smart Card login or if not uncomment it
     "ScDeviceEnum", #Delete this line if you use Smart Card login or if not uncomment it
     "SCPolicySvc", #Delete this line if you use Smart Card login or if not uncomment it
-    #"Spooler" # Need validation | some disable it others not | print spooler
+    "Spooler" # Need validation | some disable it others not | print spooler
     "Fax",
     "MixedRealityOpenXRSvc",
     "W32Time",
@@ -125,30 +123,34 @@ $servicesDisable = @(
     "UevAgentService",
     "Themes",
     "LanmanServer",
-    "NcbService",
+    # "NcbService",
     "AppVClient",
     "InstallService",
     "ssh-agent"
-)
-foreach ($service in $servicesDisable) {
-    Write-Host "Stoping service ${service}"
-    Stop-Service -Name $service -ErrorAction 'silentlycontinue'
-    Write-Host "Change the type of startup to Disabled for the service ${service}"
-    Set-Service -Name $service -StartupType Disabled -ErrorAction 'silentlycontinue'
-    Write-Host "Change the value of the key ${service} in the registry"
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\${service}" -Name "Start" -Force -Value 4 -ErrorAction 'silentlycontinue'
+);
+$servicesDisable = $servicesDisable | Select-Object -Property @{l = "Name"; e = { $_ } }, @{l = "StartType"; e = { $(Get-Service -Name $_).StartType } }, @{l = "FullName"; e = { $(Get-Service -Name $_).DisplayName } }
+Write-Host "Analysing and backup of services data ...";
+$services2disable = $servicesDisable | Where-Object { $null -ne $_.StartType } | Sort-Object -Property StartType
+$($services2disable | ConvertTo-Json | Out-File $((("ServicesDataBackup_{0:yyyyMMdd}.Json" -f "$(Get-Date)").Replace('/', '.')).Replace(' ', '_')).Replace(':', '.') ) | Out-Null
+# Log all the service names that were not found
+# $servicesDisable | Where-Object { $null -eq $_.StartType } | Select-Object @{ l = "Could not Find"; e = { $_.Name } } | ConvertTo-Json
+foreach ($service in $services2disable ) {
+    $Name = ${service}.Name
+    Write-Host "`nStoping service" -NoNewline; Write-Host " $Name ..." -ForegroundColor Yellow; Stop-Service -Name $Name -Force -ErrorAction 'silentlycontinue'
+    Write-Host "Disabling $Name ..." -NoNewline; Set-Service -Name $Name -StartupType Disabled -ErrorAction 'silentlycontinue'
+    Write-Host "Change registry for: $Name`n" -NoNewline; Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\$Name" -Name "Start" -Force -Value 4 -ErrorAction 'silentlycontinue'
 }
 
-$servicesDemand= @(
+$services2Manual = @(
     "BITS",
-    "IKEEXT"
+    "IKEEXT",
+    "WwanSvc",
+    "wuauserv"
+    "icssvc" #Delete this line if you are using Mobile Network Connection (3G, 4G, LTE, Etc). Keep this line on devices without those options.
 )
 
-foreach ($service in $servicesDemand) {
-    Write-Host "Stoping service ${service}"
-    Stop-Service -Name $service -ErrorAction 'silentlycontinue'
-    Write-Host "Change the type of startup to Manual for the service ${service}"
-    Set-Service -Name $service -StartupType Manual -ErrorAction 'silentlycontinue'
-    Write-Host "Change the value of the key ${service} in the registry"
-    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\${service}" -Name "Start" -Force -Value 3 -ErrorAction 'silentlycontinue'
+foreach ($service in $services2Manual) {
+    Write-Host "`nStoping service" -NoNewline; Write-Host " ${service} ..." -ForegroundColor Yellow; Stop-Service -Name ${service} -Force -ErrorAction 'silentlycontinue'
+    Write-Host "Change startup type to Manual ..." -NoNewline; Set-Service -Name ${service} -StartupType Manual -ErrorAction 'silentlycontinue'
+    Write-Host "Change registry for: ${service}`n" -NoNewline; Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\${service}" -Name "Start" -Force -Value 3 -ErrorAction 'silentlycontinue'
 }
