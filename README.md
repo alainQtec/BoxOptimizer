@@ -27,3 +27,25 @@ To install the BoxOptimizer module, you can use PowerShell's Package Management 
 ```powershell
 Install-Module -Name BoxOptimizer -Scope CurrentUser
 ```
+
+For more detailed installation options and prerequisites, check our Installation Guide.
+
+## Getting Started
+
+Optimizing your Windows 11 installation is easy with BoxOptimizer. To get started, follow the Quick Start Guide for step-by-step instructions on running your first optimization.
+
+## Usage
+
+BoxOptimizer offers a range of commands to optimize various aspects of your Windows 11 installation. Visit the Usage Guide to explore available commands and examples.
+
+## Documentation
+
+For comprehensive information on using BoxOptimizer, refer to our Full Documentation.
+
+## **License**
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## **Acknowledgments**
+
+We'd like to thank the open-source community for their valuable contributions to this project.
