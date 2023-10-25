@@ -99,8 +99,6 @@ PrivateData = @{
 
         # A URL to the license for this module.
         # LicenseUri = ''
-
-        # A URL to the main website for this project.
         # ProjectUri = ''
 
         # A URL to an icon representing this module.
@@ -124,9 +122,7 @@ PrivateData = @{
 
 # HelpInfo URI of this module
 # HelpInfoURI = ''
-
 # Default prefix for commands exported from this module. Override the default prefix using Import-Module -Prefix.
 # DefaultCommandPrefix = ''
-
 }
 
