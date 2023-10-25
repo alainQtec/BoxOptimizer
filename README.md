@@ -1,45 +1,29 @@
->I recently installed windows 11, it will be necessary to be patient for the wikis (they arrive soon)
-# 📖 Description
-### Hello everyone and welcome to this repository 👋!
-You can find all the commands, scripts, registry keys, configuration, tutorials and more that I use to optimize my Windows 10/11 to get the best performance from my PC
+# **BoxOptimizer**: A Windows 11 Optimization tool
 
-# 📋 Recommendations
-Here are my recommendations after a clean installation of windows 10 or 11
+BoxOptimizer is a tool that simplifies the process of optimizing your Windows 11 installation for improved performance and user experience.
 
-* Make all updates from windows update
-* Make all updates from windows store
-* Install the latest version of winget
+With just a few simple commands, you can fine-tune your Windows 11 system to meet your specific needs.
 
-All these recommendations will help us to have a common base
+## **Features**
 
-# ⚠ Important notes
+- **One-Click Optimization:** Optimize Windows 11 with a single command.
 
-### 1. Don't forget to run all scripts as administrator, it's important to have the necessary access for the scripts to work at their best
+- **Customization:** Choose specific optimizations or perform a comprehensive system optimization.
 
-### 2. I do not guarantee personal support and I am not responsible if you have a problem. If a problem is recurrent I will be happy to make the changes myself 
+- **Performance Metrics:** See measurable improvements in system performance.
 
-# 📚 Wikis
+- **Recommendations:** Get optimization recommendations tailored to your hardware and usage.
 
-I'm working hard to explain everything in the [wiki pages](https://github.com/Damokless/Windows11-Optimization/wiki)... read it it's important ! you'll find tips, tweaks and many other things... there is nothing here in the readme.
+- **Detailed Logging:** Keep a record of optimization actions for future reference.
 
-## Here are the wikis available
-* [Download Windows ISO](https://github.com/Damokless/Windows11-Optimization/wiki/Download-windows-iso)
-  * [Download windows 10 iso](https://github.com/Damokless/Windows11-Optimization/wiki/Download-windows-iso#download-windows-10)
-  * [Download Windows 11 iso](https://github.com/Damokless/Windows11-Optimization/wiki/Download-windows-iso#download-windows-11)
-  * [Download Windows 11 iso without the requirements](https://github.com/Damokless/Windows11-Optimization/wiki/Download-windows-iso#download-windows-11-without-the-requirements)
-* [Temporary files](https://github.com/Damokless/Windows11-Optimization/wiki/Temp-files)
-* [TaskBar page](https://github.com/Damokless/Windows11-Optimization/wiki/TaskBar)
-* [Host file](https://github.com/Damokless/Windows11-Optimization/wiki/Host-file)
-* [Nvidia Drivers](https://github.com/Damokless/Windows11-Optimization/wiki/Nvidia-drivers)
+- **Community Support:** Join our community for discussions, troubleshooting, and sharing experiences.
 
-# 🤝 Contributions
+- **Regular Updates:** Stay up-to-date with the latest Windows 11 changes and optimizations.
 
-the repository is open to suggestions, contributions and all other forms of help.
+## **Installation**
 
-To contribute it's easy, just :
+To install the BoxOptimizer module, you can use PowerShell's Package Management cmdlets. Run the following command:
 
-- Explain what it does exactly
-- Sources of information if possible
-- Pull request
-
-For any contribution, it will be signed and thanked with the nickname of the person
+```powershell
+Install-Module -Name BoxOptimizer -Scope CurrentUser
+```
