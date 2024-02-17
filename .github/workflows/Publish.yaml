@@ -1,0 +1,16 @@
+name: GitHub release and Publish
+on: [workflow_dispatch]
+defaults:
+  run:
+    shell: pwsh
+jobs:
+  publish-to-gallery:
+    name: Publish to PowerShell Gallery
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Publish
+        env:
+          GitHubPAT: ${{ secrets.GitHubPAT }}
+          NUGETAPIKEY: ${{ secrets.NUGETAPIKEY }}
+        run: ./build.ps1 -Task Deploy
