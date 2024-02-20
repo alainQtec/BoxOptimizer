@@ -4,6 +4,20 @@ defaults:
   run:
     shell: pwsh
 jobs:
+  upload-pester-results:
+    name: Run Pester and upload results
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test with Pester
+        shell: pwsh
+        run: Invoke-Pester Unit.Tests.ps1 -Passthru | Export-CliXml -Path Unit.Tests.xml
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: ubuntu-Unit-Tests
+          path: Unit.Tests.xml
+    if: ${{ always() }}
   publish-to-gallery:
     name: Publish to PowerShell Gallery
     runs-on: ubuntu-latest
