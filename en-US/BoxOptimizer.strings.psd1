@@ -1,8 +1,8 @@
 
 @{
-    ModuleName    = 'BoxOptimizer'
-    ModuleVersion = [version]'0.1.0'
-    ReleaseNotes  = '# Release Notes
+  ModuleName    = 'BoxOptimizer'
+  ModuleVersion = [version]'0.1.0'
+  ReleaseNotes  = '# Release Notes
 
 ## Version _0.1.0_
 
@@ -15,4 +15,3 @@
 
   >...'
 }
-      
